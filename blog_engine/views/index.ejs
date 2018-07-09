@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Blog</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="header">
+    <h1>Welcome to the Blog:</h1>
+    <h2>The newest articles below</h2>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a target="_blank" href="https://geoguessr.com">Guess!</a>
+    <a target="_blank" href="https://www.omfgdogs.com">OMFG DOGS!</a>
+    <a target="_blank" href="https://littlealchemy.com">Alchemy!</a>
+
+</div>
+<div class="topnav">
+    <span style="font-size:30px;cursor:pointer;color: white; margin-left: 10px" onclick="openNav()">&#9776; open menu</span>
+    <div style="margin-right: 150px;" class="dropdown">
+        <button class="dropbtn">More
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a target="_blank" href="https://www.boredbutton.com/random">Bored</a>
+            <a target="_blank" href="https://weirdorconfusing.com">Confused</a>
+            <a target="_blank" href="https://theuselessweb.com">Fun</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+<div class="row">
+    <div class="leftcolumn">
+        <%articles.forEach(post => { %>
+        <div class="card">
+            <h1><%= post.title %></h1>
+            <h2>By: <%= post.author %></h2>
+            <h2>Writing from <%= post.country %></h2>
+            <p><%= post.body %></p>
+            <h3>Posted on: <%= post.date %></h3>
+        </div>
+        <% }) %>
+
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>Add your own post!</h2>
+
+            <button class="buttonload btn warning" onclick="window.open('http://127.0.0.1:8081/newpost')">
+                <i class="fa fa-bars"></i> Click Here
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
